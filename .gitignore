@@ -1,0 +1,9 @@
+PromedioEdad.csproj
+PromedioEdad.sln
+PromedioEdad.suo
+.gitattributes
+Properties/
+bin/
+obj/
+App.config
+.vs/
