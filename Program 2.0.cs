@@ -8,66 +8,51 @@ namespace PromedioEdad
     {
         static void Main(string[] args)
         {
-            float promed = 0.0f,edMayor = 0.0f, edMenor = 0.0f, edad1=5, edad2=5, edad3=45, edad4=60, edad5= 20; 
+            //V 3.0
+            int i = 0, j = 0, edad = 0, edMayor = 0, edMenor = 150;
+            float promed = 0.0f, sum = 0.0f;
             
 
-            Console.WriteLine("Promedie las edades de estas personas y diga cual es la mayor y la menor");
+            Console.WriteLine("Ingrese un numero de personas, pida y promedie las edades \nde estas personas y diga cual es la mayor y cual la menor");
             Console.WriteLine();
-            Console.WriteLine(" Persona 1 tiene {0} años", edad1);
-            Console.WriteLine(" Persona 1 tiene {0} años", edad2);
-            Console.WriteLine(" Persona 1 tiene {0} años", edad3);
-            Console.WriteLine(" Persona 1 tiene {0} años", edad4);
-            Console.WriteLine(" Persona 1 tiene {0} años", edad5);
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            int [] personaEdad = new int [n];
+
+            for (i = 0; i < n; i++)
+            {
+                Console.WriteLine("Dame una edad");
+                edad = Convert.ToInt32(Console.ReadLine());
+                personaEdad[i]=edad;
+            }
             
-
-            promed = (edad1 + edad2 + edad3 + edad4 + edad5) / 5;
-            Console.WriteLine();
+            foreach(int elem in personaEdad)
+            {
+            //Console.Write(elem);
+            sum += elem;
+            }
+            //Console.WriteLine(sum);
+            promed = sum / n;
+            Console.WriteLine("El promedio de las edades dadas es {0}",promed);
             
-            Console.WriteLine("El promedio de edades es {0}", promed);
-            Console.WriteLine();
+            foreach (int elem in personaEdad)
+            {
+                if(elem < edMenor)
+                    edMenor = elem;
+            }
+            //Console.WriteLine(edMenor);
+            
+            Console.WriteLine("La menor de las edades es {0}", edMenor);
+            
+            foreach (int elem in personaEdad)
+            {
+                if (elem > edMayor)
+                    edMayor = elem;
+            }
+            //Console.WriteLine(edMayor);
 
-            if (edad1>=edad2&&edad1>=edad3&&edad1>=edad4&&edad1>=edad5)
-            {
-                Console.WriteLine("{0} es la edad mayor", edad1);
-            }
-            else if (edad2 >= edad1 && edad2 >= edad3 && edad2 >= edad4 && edad2 >= edad5)
-            {
-                Console.WriteLine("{0} es la edad mayor", edad2);
-            }
-            else if (edad3 >= edad1 && edad3 >= edad2 && edad3 >= edad4 && edad3 >= edad5)
-            {
-                Console.WriteLine("{0} es la edad mayor", edad3);
-            }
-            else if (edad4 >= edad1 && edad4 >= edad2 && edad4 >= edad3 && edad4 >= edad5)
-            {
-                Console.WriteLine("{0} es la edad mayor", edad4);
-            }
-            else if (edad5 >= edad1 && edad5 >= edad2 && edad5 >= edad3 && edad5 >= edad4)
-            {
-                Console.WriteLine("{0} es la edad mayor", edad5);
-            }
-            Console.WriteLine();
-
-            if (edad1 <= edad2 && edad1 <= edad3 && edad1 <= edad4 && edad1 <= edad5)
-            {
-                Console.WriteLine("{0} es la edad menor", edad1);
-            }
-            else if (edad2 <= edad1 && edad2 <= edad3 && edad2 <= edad4 && edad2 <= edad5)
-            {
-                Console.WriteLine("{0} es la edad menor", edad2);
-            }
-            else if (edad3 <= edad1 && edad3 <= edad2 && edad3 <= edad4 && edad3 <= edad5)
-            {
-                Console.WriteLine("{0} es la edad menor", edad3);
-            }
-            else if (edad4 <= edad1 && edad4 <= edad2 && edad4 <= edad3 && edad4 <= edad5)
-            {
-                Console.WriteLine("{0} es la edad menor", edad4);
-            }
-            else if (edad5 <= edad1 && edad5 <= edad2 && edad5 <= edad3 && edad5 <= edad4)
-            {
-                Console.WriteLine("{0} es la edad menor", edad5);
-            }
+            Console.WriteLine("La mayor de las edades es {0}", edMayor);
+            
 
 
                 Console.ReadKey();
